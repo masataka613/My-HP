@@ -5,7 +5,7 @@ body {
     color: #ccd6f6;
 }
 
-/* 全体レイアウト */
+/* 全体 */
 .container {
     display: flex;
     max-width: 1100px;
@@ -49,10 +49,9 @@ section {
 
 h2 {
     color: #64ffda;
-    margin-bottom: 10px;
 }
 
-/* プロジェクトカード */
+/* カード */
 .card {
     background: #112240;
     padding: 20px;
