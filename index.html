@@ -3,13 +3,66 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TEST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masataka Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1 style="color:black;">表示テスト</h1>
-    <p>これが見えればHTMLはOK</p>
+    <div class="container">
+
+        <!-- 左サイド -->
+        <aside class="sidebar">
+            <h1>Masataka</h1>
+            <p>Java / Spring Boot</p>
+
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </aside>
+
+        <!-- 右メイン -->
+        <main class="content">
+
+            <section class="hero">
+                <h2>Building web applications</h2>
+                <p>Java / Spring Boot / Backend Developer</p>
+            </section>
+
+            <section id="about">
+                <h2>About</h2>
+                <p>Webアプリ開発を中心に学習・開発しています。</p>
+            </section>
+
+            <section id="experience">
+                <h2>Experience</h2>
+                <p>現場でキッティング・テスト・改善業務を経験</p>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+
+                <div class="card">
+                    <h3>本を選ぶアプリ</h3>
+                    <p>Spring Boot / Webアプリ</p>
+                    <a href="https://book-user-id.onrender.com">View</a>
+                </div>
+
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>GitHub: https://github.com/masataka613</p>
+                <p>Email: t@t</p>
+            </section>
+
+        </main>
+
+    </div>
 
 </body>
 
