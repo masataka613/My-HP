@@ -33,6 +33,8 @@
 ## ✨ コメント
 学習用ポートフォリオとして随時アップデート予定
 
+
+メモ
 git add README.md
 git commit -m "add README"
 git push
