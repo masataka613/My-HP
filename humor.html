@@ -3,8 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーモアページ</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== 追加CSS ===== */
+
+        #quote {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .slide {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #64ffda;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* 履歴 */
+        .history {
+            margin-top: 20px;
+            color: #8892b0;
+            font-size: 14px;
+        }
+
+        /* ダークモード */
+        body.light {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        body.light .card {
+            background: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,34 +52,95 @@
     <div class="container">
 
         <aside class="sidebar">
-            <h1>Humor Page</h1>
-            <p>ちょっと遊び</p>
+            <h1>Humor</h1>
+            <p>軽い息抜き</p>
 
             <nav>
-                <a href="index.html">ホームに戻る</a>
+                <a href="index.html">ホーム</a>
             </nav>
         </aside>
 
         <main class="content">
 
             <section>
-                <h2>ジョーク</h2>
-                <p>「バグは仕様です」って言い続けたら仕様がバグになった</p>
-            </section>
+                <h2>エンジニア名言ジェネレーター</h2>
 
-            <section>
-                <h2>エンジニアあるある</h2>
-                <p>動いてるコードは触らない。でも触る。</p>
-            </section>
+                <div class="card">
+                    <p id="quote">ボタンを押してね</p>
 
-            <section>
-                <h2>今日の気づき</h2>
-                <p>GitHub Pagesは優しいけど、たまにツンデレ</p>
+                    <button onclick="newQuote()">生成</button>
+                    <button onclick="toggleTheme()">テーマ切替</button>
+                </div>
+
+                <div class="history">
+                    <h3>履歴</h3>
+                    <ul id="historyList"></ul>
+                </div>
             </section>
 
         </main>
 
     </div>
+
+    <script>
+        const quotes = [
+            "バグは消すものではなく観察対象",
+            "動いてるコードは触らない。でも触る",
+            "昨日動いたは今日動かない",
+            "console.logは最強のデバッガー",
+            "仕様ですは万能ワード"
+        ];
+
+        let history = [];
+
+        // ===== タイピング風表示 =====
+        function typeText(text, element, i = 0) {
+            if (i === 0) element.innerHTML = "";
+
+            if (i < text.length) {
+                element.innerHTML += text[i];
+                setTimeout(() => typeText(text, element, i + 1), 30);
+            }
+        }
+
+        // ===== 名言生成 =====
+        function newQuote() {
+            const el = document.getElementById("quote");
+
+            // スライド演出
+            el.classList.add("slide");
+
+            setTimeout(() => {
+                const random = Math.floor(Math.random() * quotes.length);
+                const selected = quotes[random];
+
+                typeText(selected, el);
+
+                // 履歴追加
+                history.unshift(selected);
+                updateHistory();
+
+                el.classList.remove("slide");
+            }, 200);
+        }
+
+        // ===== 履歴表示 =====
+        function updateHistory() {
+            const list = document.getElementById("historyList");
+            list.innerHTML = "";
+
+            history.slice(0, 5).forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+
+        // ===== ダークモード =====
+        function toggleTheme() {
+            document.body.classList.toggle("light");
+        }
+    </script>
 
 </body>
 
