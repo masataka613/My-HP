@@ -44,6 +44,21 @@
         body.light .card {
             background: #fff;
         }
+
+        #gameArea {
+            margin-top: 15px;
+            min-height: 150px;
+            position: relative;
+            border: 1px solid #233554;
+            overflow: hidden;
+        }
+
+        .bug {
+            position: absolute;
+            cursor: pointer;
+            font-size: 22px;
+            user-select: none;
+        }
     </style>
 </head>
 
@@ -75,6 +90,18 @@
                 <div class="history">
                     <h3>履歴</h3>
                     <ul id="historyList"></ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>🎮 バグ退治ゲーム</h2>
+
+                <div class="card">
+                    <p>出てくるバグ（🐛）をクリックして退治しよう</p>
+
+                    <h3>スコア: <span id="score">0</span></h3>
+
+                    <div id="gameArea"></div>
                 </div>
             </section>
 
@@ -140,6 +167,36 @@
         function toggleTheme() {
             document.body.classList.toggle("light");
         }
+
+        let score = 0;
+
+        // バグ生成
+        function spawnBug() {
+            const bug = document.createElement("div");
+            bug.classList.add("bug");
+            bug.innerText = "🐛";
+
+            const area = document.getElementById("gameArea");
+
+            bug.style.top = Math.random() * 120 + "px";
+            bug.style.left = Math.random() * 200 + "px";
+
+            bug.onclick = () => {
+                score++;
+                document.getElementById("score").innerText = score;
+                bug.remove();
+            };
+
+            area.appendChild(bug);
+
+            // 自動消滅
+            setTimeout(() => {
+                bug.remove();
+            }, 2500);
+        }
+
+        // 定期的に出現
+        setInterval(spawnBug, 1200);
     </script>
 
 </body>
