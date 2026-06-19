@@ -62,3 +62,43 @@ h2 {
 .card a {
     color: #64ffda;
 }
+
+/* =========================
+   📱 レスポンシブ対応
+========================= */
+@media (max-width: 768px) {
+
+    .container {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    section {
+        margin-bottom: 50px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
