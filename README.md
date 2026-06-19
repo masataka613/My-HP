@@ -10,15 +10,14 @@
 ---
 
 ## 📌 プロジェクト
-### 📖 本を自動で選ぶアプリ
-- URL: https://book-user-id.onrender.com
-- Spring Boot + Webアプリ
+### 題名
+- URL: 
+- 使用技術
 
 ---
 
 ## 🧠 今後の改善予定
-- レイアウト改善（Brittany Chiang風デザイン）
-- レスポンシブ対応
+
 - アニメーション追加
 - プロジェクト追加
 
@@ -26,7 +25,7 @@
 
 ## 📫 Contact
 - GitHub: https://github.com/masataka613
-- Email: t@t
+- Email: 
 
 ---
 
