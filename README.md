@@ -33,11 +33,3 @@
 学習用ポートフォリオとして随時アップデート予定
 
 
-メモ
-git add README.md
-git commit -m "add README"
-git push
-
-強制
-git commit --allow-empty -m "force rebuild github pages"
-git push
